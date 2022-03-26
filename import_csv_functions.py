@@ -8,21 +8,7 @@ from import_csv_functions import *
 
  
 
-def create_df():
-    
-    data_path = os.getcwd()
-    csv_files = glob.glob(os.path.join(data_path, "*.csv"))
 
-    #loop through the files and create the dataframe
-    df = {}
-    for file in csv_files:
-        try:
-            df[file] = pd.read_csv(data_path+file)
-        except UnicodeDecodeError:
-            df[file] = pd.read_csv(data_path+file, encoding="ISO-8859-1") #if utf-8 encoding error
-        print(file)
-    
-    return df, csv_files
       
 
 def normalize_table_name(filename):
